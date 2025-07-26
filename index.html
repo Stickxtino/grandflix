@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>GrandFlix</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background-color: #111;
+      color: #fff;
+    }
+    header {
+      background-color: #000;
+      padding: 20px;
+      text-align: center;
+      font-size: 2em;
+      font-weight: bold;
+    }
+    .search-bar {
+      text-align: center;
+      margin-top: 10px;
+    }
+    .search-bar input {
+      padding: 10px;
+      font-size: 16px;
+      width: 300px;
+      border-radius: 5px;
+      border: none;
+    }
+    .movie-container {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+      gap: 20px;
+      padding: 20px;
+    }
+    .movie {
+      background-color: #222;
+      padding: 10px;
+      border-radius: 10px;
+      text-align: center;
+      transition: transform 0.3s;
+    }
+    .movie:hover {
+      transform: scale(1.05);
+    }
+    .movie img {
+      width: 100%;
+      border-radius: 10px;
+    }
+    .movie-title {
+      margin-top: 10px;
+      font-weight: bold;
+    }
+    .movie-genre,
+    .movie-rating {
+      font-size: 0.9em;
+      color: #aaa;
+    }
+    .watch-button {
+      margin-top: 10px;
+      padding: 8px 15px;
+      background-color: crimson;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+    .watch-button:hover {
+      background-color: darkred;
+    }
+    .review-box {
+      margin-top: 10px;
+    }
+    .review-box textarea {
+      width: 90%;
+      padding: 5px;
+      border-radius: 5px;
+      border: none;
+    }
+    .review-box button {
+      margin-top: 5px;
+      padding: 5px 10px;
+      background-color: #444;
+      color: #fff;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+  </style>
+  <script>
+    function searchMovies() {
+      const input = document.getElementById('searchInput').value.toLowerCase();
+      const movies = document.getElementsByClassName('movie');
+      Array.from(movies).forEach(movie => {
+        const title = movie.querySelector('.movie-title').textContent.toLowerCase();
+        movie.style.display = title.includes(input) ? 'block' : 'none';
+      });
+    }
+    function submitReview(button) {
+      const textarea = button.previousElementSibling;
+      alert(\"Review submitted: \" + textarea.value);
+      textarea.value = \"\";
+    }
+  </script>
+</head>
+<body>
+  <header>🎬 GrandFlix</header>
+
+  <div class="search-bar">
+    <input type="text" id="searchInput" onkeyup="searchMovies()" placeholder="Search for a movie...">
+  </div>
+
+  <div class="movie-container">
+
+    <div class="movie">
+      <img src="https://i.imgur.com/qf1SnKC.jpg" alt="Drive">
+      <div class="movie-title">Drive</div>
+      <div class="movie-genre">Action, Thriller</div>
+      <div class="movie-rating">Rating: ★★★★☆</div>
+      <a href="https://www.youtube.com/watch?v=KBiOF3y1W0Y" target="_blank">
+        <button class="watch-button">Watch Now</button>
+      </a>
+      <div class="review-box">
+        <textarea rows="2" placeholder="Write a review..."></textarea>
+        <button onclick="submitReview(this)">Submit Review</button>
+      </div>
+    </div>
+
+    <div class="movie">
+      <img src="https://i.imgur.com/yiU1cfX.jpg" alt="Mad Max: Fury Road">
+      <div class="movie-title">Mad Max: Fury Road</div>
+      <div class="movie-genre">Action, Sci-Fi</div>
+      <div class="movie-rating">Rating: ★★★★★</div>
+      <a href="https://www.youtube.com/watch?v=hEJnMQG9ev8" target="_blank">
+        <button class="watch-button">Watch Now</button>
+      </a>
+      <div class="review-box">
+        <textarea rows="2" placeholder="Write a review..."></textarea>
+        <button onclick="submitReview(this)">Submit Review</button>
+      </div>
+    </div>
+
+    <div class="movie">
+      <img src="https://i.imgur.com/3Y1W7m3.jpg" alt="The Social Network">
+      <div class="movie-title">The Social Network</div>
+      <div class="movie-genre">Drama, Biography</div>
+      <div class="movie-rating">Rating: ★★★★☆</div>
+      <a href="https://www.youtube.com/watch?v=lB95KLmpLR4" target="_blank">
+        <button class="watch-button">Watch Now</button>
+      </a>
+      <div class="review-box">
+        <textarea rows="2" placeholder="Write a review..."></textarea>
+        <button onclick="submitReview(this)">Submit Review</button>
+      </div>
+    </div>
+
+    <div class="movie">
+      <img src="https://i.imgur.com/nSGHIIG.jpg" alt="Blade Runner 2049">
+      <div class="movie-title">Blade Runner 2049</div>
+      <div class="movie-genre">Sci-Fi, Mystery</div>
+      <div class="movie-rating">Rating: ★★★★★</div>
+      <a href="https://www.youtube.com/watch?v=gCcx85zbxz4" target="_blank">
+        <button class="watch-button">Watch Now</button>
+      </a>
+      <div class="review-box">
+        <textarea rows="2" placeholder="Write a review..."></textarea>
+        <button onclick="submitReview(this)">Submit Review</button>
+      </div>
+    </div>
+
+  </div>
+</body>
+</html>
