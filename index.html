@@ -30,146 +30,91 @@
       border: none;
     }
     .movie-container {
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
-      gap: 20px;
-      padding: 20px;
-    }
-    .movie {
-      background-color: #222;
-      padding: 10px;
-      border-radius: 10px;
-      text-align: center;
-      transition: transform 0.3s;
-    }
-    .movie:hover {
-      transform: scale(1.05);
-    }
-    .movie img {
-      width: 100%;
-      border-radius: 10px;
-    }
-    .movie-title {
-      margin-top: 10px;
-      font-weight: bold;
-    }
-    .movie-genre,
-    .movie-rating {
-      font-size: 0.9em;
-      color: #aaa;
-    }
-    .watch-button {
-      margin-top: 10px;
-      padding: 8px 15px;
-      background-color: crimson;
-      color: white;
-      border: none;
-      border-radius: 5px;
-      cursor: pointer;
-    }
-    .watch-button:hover {
-      background-color: darkred;
-    }
-    .review-box {
-      margin-top: 10px;
-    }
-    .review-box textarea {
-      width: 90%;
-      padding: 5px;
-      border-radius: 5px;
-      border: none;
-    }
-    .review-box button {
-      margin-top: 5px;
-      padding: 5px 10px;
-      background-color: #444;
-      color: #fff;
-      border: none;
-      border-radius: 5px;
-      cursor: pointer;
-    }
-  </style>
-  <script>
-    function searchMovies() {
-      const input = document.getElementById('searchInput').value.toLowerCase();
-      const movies = document.getElementsByClassName('movie');
-      Array.from(movies).forEach(movie => {
-        const title = movie.querySelector('.movie-title').textContent.toLowerCase();
-        movie.style.display = title.includes(input) ? 'block' : 'none';
-      });
-    }
-    function submitReview(button) {
-      const textarea = button.previousElementSibling;
-      alert(\"Review submitted: \" + textarea.value);
-      textarea.value = \"\";
-    }
-  </script>
-</head>
-<body>
-  <header>🎬 GrandFlix</header>
+      <div class="movie-container">
 
-  <div class="search-bar">
-    <input type="text" id="searchInput" onkeyup="searchMovies()" placeholder="Search for a movie...">
+  <div class="movie">
+    <img src="https://m.media-amazon.com/images/M/MV5BMjQ3MTgxNzI0OV5BMl5BanBnXkFtZTgwNzI2NzQ3NjE@._V1_.jpg" alt="Drive">
+    <div class="movie-title">Drive</div>
+    <div class="movie-genre">Action, Drama</div>
+    <div class="movie-rating">Rating: ★★★★☆</div>
+    <a href="https://www.youtube.com/watch?v=KBiOF3y1W0Y" target="_blank">
+      <button class="watch-button">Watch Now</button>
+    </a>
+    <div class="review-box">
+      <textarea rows="2" placeholder="Write a review..."></textarea>
+      <button onclick="submitReview(this)">Submit Review</button>
+    </div>
   </div>
 
-  <div class="movie-container">
-
-    <div class="movie">
-      <img src="https://i.imgur.com/qf1SnKC.jpg" alt="Drive">
-      <div class="movie-title">Drive</div>
-      <div class="movie-genre">Action, Thriller</div>
-      <div class="movie-rating">Rating: ★★★★☆</div>
-      <a href="https://www.youtube.com/watch?v=KBiOF3y1W0Y" target="_blank">
-        <button class="watch-button">Watch Now</button>
-      </a>
-      <div class="review-box">
-        <textarea rows="2" placeholder="Write a review..."></textarea>
-        <button onclick="submitReview(this)">Submit Review</button>
-      </div>
+  <div class="movie">
+    <img src="https://m.media-amazon.com/images/M/MV5BMjI2NjUxNzgyNV5BMl5BanBnXkFtZTgwNzYxNzE1MjE@._V1_.jpg" alt="Mad Max: Fury Road">
+    <div class="movie-title">Mad Max: Fury Road</div>
+    <div class="movie-genre">Action, Sci-Fi</div>
+    <div class="movie-rating">Rating: ★★★★★</div>
+    <a href="https://www.youtube.com/watch?v=hEJnMQG9ev8" target="_blank">
+      <button class="watch-button">Watch Now</button>
+    </a>
+    <div class="review-box">
+      <textarea rows="2" placeholder="Write a review..."></textarea>
+      <button onclick="submitReview(this)">Submit Review</button>
     </div>
-
-    <div class="movie">
-      <img src="https://i.imgur.com/yiU1cfX.jpg" alt="Mad Max: Fury Road">
-      <div class="movie-title">Mad Max: Fury Road</div>
-      <div class="movie-genre">Action, Sci-Fi</div>
-      <div class="movie-rating">Rating: ★★★★★</div>
-      <a href="https://www.youtube.com/watch?v=hEJnMQG9ev8" target="_blank">
-        <button class="watch-button">Watch Now</button>
-      </a>
-      <div class="review-box">
-        <textarea rows="2" placeholder="Write a review..."></textarea>
-        <button onclick="submitReview(this)">Submit Review</button>
-      </div>
-    </div>
-
-    <div class="movie">
-      <img src="https://i.imgur.com/3Y1W7m3.jpg" alt="The Social Network">
-      <div class="movie-title">The Social Network</div>
-      <div class="movie-genre">Drama, Biography</div>
-      <div class="movie-rating">Rating: ★★★★☆</div>
-      <a href="https://www.youtube.com/watch?v=lB95KLmpLR4" target="_blank">
-        <button class="watch-button">Watch Now</button>
-      </a>
-      <div class="review-box">
-        <textarea rows="2" placeholder="Write a review..."></textarea>
-        <button onclick="submitReview(this)">Submit Review</button>
-      </div>
-    </div>
-
-    <div class="movie">
-      <img src="https://i.imgur.com/nSGHIIG.jpg" alt="Blade Runner 2049">
-      <div class="movie-title">Blade Runner 2049</div>
-      <div class="movie-genre">Sci-Fi, Mystery</div>
-      <div class="movie-rating">Rating: ★★★★★</div>
-      <a href="https://www.youtube.com/watch?v=gCcx85zbxz4" target="_blank">
-        <button class="watch-button">Watch Now</button>
-      </a>
-      <div class="review-box">
-        <textarea rows="2" placeholder="Write a review..."></textarea>
-        <button onclick="submitReview(this)">Submit Review</button>
-      </div>
-    </div>
-
   </div>
-</body>
-</html>
+
+  <div class="movie">
+    <img src="https://m.media-amazon.com/images/M/MV5BZjdkOTU3MGUtMjYwZC00NzAxLTgzMTctNTZlNTY5N2ZhODQyXkEyXkFqcGdeQXVyNjUwNzk3NDc@._V1_.jpg" alt="The Social Network">
+    <div class="movie-title">The Social Network</div>
+    <div class="movie-genre">Biography, Drama</div>
+    <div class="movie-rating">Rating: ★★★★☆</div>
+    <a href="https://www.youtube.com/watch?v=lB95KLmpLR4" target="_blank">
+      <button class="watch-button">Watch Now</button>
+    </a>
+    <div class="review-box">
+      <textarea rows="2" placeholder="Write a review..."></textarea>
+      <button onclick="submitReview(this)">Submit Review</button>
+    </div>
+  </div>
+
+  <div class="movie">
+    <img src="https://m.media-amazon.com/images/M/MV5BNjQ2NzY5NzA0OF5BMl5BanBnXkFtZTcwNjUwMjg5Ng@@._V1_.jpg" alt="Blade Runner 2049">
+    <div class="movie-title">Blade Runner 2049</div>
+    <div class="movie-genre">Sci-Fi, Mystery</div>
+    <div class="movie-rating">Rating: ★★★★★</div>
+    <a href="https://www.youtube.com/watch?v=gCcx85zbxz4" target="_blank">
+      <button class="watch-button">Watch Now</button>
+    </a>
+    <div class="review-box">
+      <textarea rows="2" placeholder="Write a review..."></textarea>
+      <button onclick="submitReview(this)">Submit Review</button>
+    </div>
+  </div>
+
+  <div class="movie">
+    <img src="https://m.media-amazon.com/images/M/MV5BMTU1NTQ0NTQ3NV5BMl5BanBnXkFtZTgwNTgzMzM2NjE@._V1_.jpg" alt="Nightcrawler">
+    <div class="movie-title">Nightcrawler</div>
+    <div class="movie-genre">Crime, Thriller</div>
+    <div class="movie-rating">Rating: ★★★★☆</div>
+    <a href="https://www.youtube.com/watch?v=X8kYDQan8bw" target="_blank">
+      <button class="watch-button">Watch Now</button>
+    </a>
+    <div class="review-box">
+      <textarea rows="2" placeholder="Write a review..."></textarea>
+      <button onclick="submitReview(this)">Submit Review</button>
+    </div>
+  </div>
+
+  <div class="movie">
+    <img src="https://m.media-amazon.com/images/M/MV5BM2EzYmQxNzEtYmY3Mi00NWIyLTlhM2QtODkxNjIxNzFjMThhXkEyXkFqcGdeQXVyMTkxNjUyNQ@@._V1_.jpg" alt="Tenet">
+    <div class="movie-title">Tenet</div>
+    <div class="movie-genre">Sci-Fi, Action</div>
+    <div class="movie-rating">Rating: ★★★★☆</div>
+    <a href="https://www.youtube.com/watch?v=L3pk_TBkihU" target="_blank">
+      <button class="watch-button">Watch Now</button>
+    </a>
+    <div class="review-box">
+      <textarea rows="2" placeholder="Write a review..."></textarea>
+      <button onclick="submitReview(this)">Submit Review</button>
+    </div>
+  </div>
+
+</div>
+
